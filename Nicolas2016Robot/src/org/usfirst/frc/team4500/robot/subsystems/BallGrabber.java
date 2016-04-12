@@ -3,6 +3,7 @@ package org.usfirst.frc.team4500.robot.subsystems;
 import org.usfirst.frc.team4500.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -11,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class BallGrabber extends Subsystem {
 	
 	private DoubleSolenoid loader;
+	private Victor belt;
 	
 	public BallGrabber() {
 		loader = new DoubleSolenoid(RobotMap.LOAD_SOLENOID_1, RobotMap.LOAD_SOLENOID_2);
