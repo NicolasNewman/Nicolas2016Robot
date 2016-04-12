@@ -6,6 +6,7 @@ import org.usfirst.frc.team4500.robot.commands.DrivetrainSwitch;
 import org.usfirst.frc.team4500.robot.commands.GrabberDown;
 import org.usfirst.frc.team4500.robot.commands.GrabberStart;
 import org.usfirst.frc.team4500.robot.commands.GrabberUp;
+import org.usfirst.frc.team4500.robot.subsystems.BallGrabber.loadDir;
 import org.usfirst.frc.team4500.robot.subsystems.BasicDriveTrain.driveType;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -31,10 +32,10 @@ public class OI {
 		stick = new Joystick(0);
 		
 		loadUp = new JoystickButton(stick, 8);
-		loadUp.whileHeld(new GrabberUp());
+		loadUp.whileHeld(new GrabberUp(loadDir.UP));
 		
 		loadDown = new JoystickButton(stick, 9);
-		loadDown.whileHeld(new GrabberDown());
+		loadDown.whileHeld(new GrabberDown(loadDir.DOWN));
 		
 		loadStart = new JoystickButton(stick, 10);
 		loadStart.whileHeld(new GrabberStart());

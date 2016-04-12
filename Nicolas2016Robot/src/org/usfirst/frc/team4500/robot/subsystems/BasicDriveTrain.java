@@ -27,7 +27,6 @@ public class BasicDriveTrain extends Subsystem {
     public void switchTrain(driveType driveTrain) {
     	if(driveTrain == driveType.OMNI) {
     		switchTrain.set(Value.kForward);
-    		
     	} else {
     		switchTrain.set(Value.kReverse);
     	}

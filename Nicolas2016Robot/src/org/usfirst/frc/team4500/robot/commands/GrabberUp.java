@@ -10,9 +10,12 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class GrabberUp extends Command {
 
-    public GrabberUp() {
+	public loadDir dir;
+	
+    public GrabberUp(loadDir dir) {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.grabber);
+        this.dir = dir;
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +24,7 @@ public class GrabberUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.grabber.load(loadDir.UP);
+    	Robot.grabber.load(dir);
     }
 
     // Make this return true when this Command no longer needs to run execute()
