@@ -18,5 +18,7 @@ public class RobotMap {
 	
 	public static int LOAD_SOLENOID_1 = 0;
 	public static int LOAD_SOLENOID_2 = 1;
+	public static int BELT_VICTOR = 0;
+	public static double LOAD_SPEED = 5;
 	
 }

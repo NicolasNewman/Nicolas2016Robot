@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4500.robot.subsystems;
 
 import org.usfirst.frc.team4500.robot.RobotMap;
+import org.usfirst.frc.team4500.robot.commands.GrabberStop;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Victor;
@@ -16,6 +17,7 @@ public class BallGrabber extends Subsystem {
 	
 	public BallGrabber() {
 		loader = new DoubleSolenoid(RobotMap.LOAD_SOLENOID_1, RobotMap.LOAD_SOLENOID_2);
+		belt = new Victor(RobotMap.BELT_VICTOR);
 	}
     
     // Put methods for controlling this subsystem
@@ -23,7 +25,15 @@ public class BallGrabber extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new GrabberStop());
+    }
+    
+    public void start() {
+    	belt.set(RobotMap.LOAD_SPEED);
+    }
+    
+    public void stop() {
+    	belt.set(0);
     }
     
     public void up() {

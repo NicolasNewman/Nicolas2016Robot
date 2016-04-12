@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4500.robot;
 
 import org.usfirst.frc.team4500.robot.commands.GrabberDown;
+import org.usfirst.frc.team4500.robot.commands.GrabberStart;
 import org.usfirst.frc.team4500.robot.commands.GrabberUp;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -14,7 +15,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	
 	Joystick stick;
-	Button loadUp,loadDown;
+	Button loadUp,loadDown, loadStart;
 	
 	public OI() {
 		stick = new Joystick(0);
@@ -24,6 +25,10 @@ public class OI {
 		
 		loadDown = new JoystickButton(stick, 9);
 		loadDown.whileHeld(new GrabberDown());
+		
+		loadStart = new JoystickButton(stick, 10);
+		loadStart.whileHeld(new GrabberStart());
+	
 	}
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
