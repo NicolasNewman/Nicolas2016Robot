@@ -2,9 +2,11 @@ package org.usfirst.frc.team4500.robot;
 
 import org.usfirst.frc.team4500.robot.commands.CannonHoriz;
 import org.usfirst.frc.team4500.robot.commands.CannonVert;
+import org.usfirst.frc.team4500.robot.commands.DrivetrainSwitch;
 import org.usfirst.frc.team4500.robot.commands.GrabberDown;
 import org.usfirst.frc.team4500.robot.commands.GrabberStart;
 import org.usfirst.frc.team4500.robot.commands.GrabberUp;
+import org.usfirst.frc.team4500.robot.subsystems.BasicDriveTrain.driveType;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -21,7 +23,9 @@ public class OI {
 	loadUp, loadDown, loadStart, 
 	cannonHorizLeft, cannonHorizRight, 
 	cannonVertUp, cannonVertDown, 
-	cannonFire;
+	cannonFire, 
+	switchTrainOmni, switchTrainTank;
+	
 	
 	public OI() {
 		stick = new Joystick(0);
@@ -50,6 +54,12 @@ public class OI {
 		cannonVertDown = new JoystickButton(stick, 6);
 		cannonVertDown.whileHeld(new CannonVert(0.4));
 		cannonVertDown.whenReleased(new CannonVert(0));
+		
+		switchTrainOmni = new JoystickButton(stick, 11);
+		switchTrainOmni.whenPressed(new DrivetrainSwitch(driveType.OMNI));
+		
+		switchTrainTank = new JoystickButton(stick, 12);
+		switchTrainTank.whenPressed(new DrivetrainSwitch(driveType.TANK));
 	
 	}
     //// CREATING BUTTONS

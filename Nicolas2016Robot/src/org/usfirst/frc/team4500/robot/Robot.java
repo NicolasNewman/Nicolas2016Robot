@@ -2,6 +2,7 @@
 package org.usfirst.frc.team4500.robot;
 
 import org.usfirst.frc.team4500.robot.subsystems.BallGrabber;
+import org.usfirst.frc.team4500.robot.subsystems.BasicDriveTrain;
 import org.usfirst.frc.team4500.robot.subsystems.Cannon;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -22,6 +23,7 @@ public class Robot extends IterativeRobot {
 
 	public static BallGrabber grabber;
 	public static Cannon cannon;
+	public static BasicDriveTrain drive;
 	public static OI oi;
 
     Command autonomousCommand;
@@ -34,6 +36,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	grabber = new BallGrabber();
     	cannon = new Cannon();
+    	drive = new BasicDriveTrain();
 		oi = new OI();
         chooser = new SendableChooser();
         SmartDashboard.putData("Auto mode", chooser);
