@@ -1,13 +1,13 @@
 
 package org.usfirst.frc.team4500.robot;
 
+import org.usfirst.frc.team4500.robot.subsystems.BallGrabber;
+import org.usfirst.frc.team4500.robot.subsystems.Cannon;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-
-import org.usfirst.frc.team4500.robot.subsystems.BallGrabber;
-
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -21,6 +21,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static BallGrabber grabber;
+	public static Cannon cannon;
 	public static OI oi;
 
     Command autonomousCommand;
@@ -32,6 +33,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
     	grabber = new BallGrabber();
+    	cannon = new Cannon();
 		oi = new OI();
         chooser = new SendableChooser();
         SmartDashboard.putData("Auto mode", chooser);

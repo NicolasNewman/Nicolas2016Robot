@@ -1,5 +1,7 @@
 package org.usfirst.frc.team4500.robot;
 
+import org.usfirst.frc.team4500.robot.commands.CannonHoriz;
+import org.usfirst.frc.team4500.robot.commands.CannonVert;
 import org.usfirst.frc.team4500.robot.commands.GrabberDown;
 import org.usfirst.frc.team4500.robot.commands.GrabberStart;
 import org.usfirst.frc.team4500.robot.commands.GrabberUp;
@@ -15,7 +17,11 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	
 	Joystick stick;
-	Button loadUp,loadDown, loadStart;
+	Button 
+	loadUp, loadDown, loadStart, 
+	cannonHorizLeft, cannonHorizRight, 
+	cannonVertUp, cannonVertDown, 
+	cannonFire;
 	
 	public OI() {
 		stick = new Joystick(0);
@@ -28,6 +34,22 @@ public class OI {
 		
 		loadStart = new JoystickButton(stick, 10);
 		loadStart.whileHeld(new GrabberStart());
+		
+		cannonHorizLeft = new JoystickButton(stick, 3);
+		cannonHorizLeft.whileHeld(new CannonHoriz(-0.5));
+		cannonHorizLeft.whenReleased(new CannonHoriz(0));
+		
+		cannonHorizRight = new JoystickButton(stick, 4);
+		cannonHorizRight.whileHeld(new CannonHoriz(0.5));
+		cannonHorizRight.whenReleased(new CannonHoriz(0));
+		
+		cannonVertUp = new JoystickButton(stick, 5);
+		cannonVertUp.whileHeld(new CannonVert(-0.4));
+		cannonVertUp.whenReleased(new CannonVert(0));
+		
+		cannonVertDown = new JoystickButton(stick, 6);
+		cannonVertDown.whileHeld(new CannonVert(0.4));
+		cannonVertDown.whenReleased(new CannonVert(0));
 	
 	}
     //// CREATING BUTTONS
