@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4500.robot;
 
+import org.usfirst.frc.team4500.robot.commands.CannonFire;
 import org.usfirst.frc.team4500.robot.commands.CannonHoriz;
 import org.usfirst.frc.team4500.robot.commands.CannonVert;
 import org.usfirst.frc.team4500.robot.commands.DrivetrainSwitch;
@@ -56,12 +57,28 @@ public class OI {
 		cannonVertDown.whileHeld(new CannonVert(0.4));
 		cannonVertDown.whenReleased(new CannonVert(0));
 		
+		cannonFire = new JoystickButton(stick, 7);
+		cannonFire.whileHeld(new CannonFire(0.1));
+		cannonFire.whenReleased(new CannonFire(0));
+		
 		switchTrainOmni = new JoystickButton(stick, 11);
 		switchTrainOmni.whenPressed(new DrivetrainSwitch(driveType.OMNI));
 		
 		switchTrainTank = new JoystickButton(stick, 12);
 		switchTrainTank.whenPressed(new DrivetrainSwitch(driveType.TANK));
 	
+	}
+	
+	public double getJoyX() {
+		return stick.getX();	
+	}
+	
+	public double getJoyY() {
+		return stick.getY();	
+	}
+	
+	public double getJoyTwist() {
+		return stick.getTwist();	
 	}
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.

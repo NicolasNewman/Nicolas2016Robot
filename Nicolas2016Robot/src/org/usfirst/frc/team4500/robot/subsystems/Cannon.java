@@ -34,5 +34,9 @@ public class Cannon extends Subsystem {
     public void moveVerticaly(double speed) {
     	vertMotor.set(speed);
     }
+    
+    public void fire(double speed) {
+    	fireMotor.set(speed);
+    }
 }
 

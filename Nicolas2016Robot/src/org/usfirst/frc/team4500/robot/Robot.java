@@ -102,6 +102,9 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        SmartDashboard.putNumber("joyX", oi.getJoyX());
+        SmartDashboard.putNumber("joyY", oi.getJoyY());
+        SmartDashboard.putNumber("joyTwist", oi.getJoyTwist());
     }
     
     /**
