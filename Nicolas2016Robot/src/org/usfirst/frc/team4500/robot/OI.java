@@ -32,7 +32,7 @@ public class OI {
 	public OI() {
 		stick = new Joystick(0);
 		
-		loadUp = new JoystickButton(stick, 8);
+		loadUp = new JoystickButton(stick, 7);
 		loadUp.whileHeld(new GrabberUp(loadDir.UP));
 		
 		loadDown = new JoystickButton(stick, 9);
@@ -49,22 +49,22 @@ public class OI {
 		cannonHorizRight.whileHeld(new CannonHoriz(0.5));
 		cannonHorizRight.whenReleased(new CannonHoriz(0));
 		
-		cannonVertUp = new JoystickButton(stick, 5);
+		/*cannonVertUp = new JoystickButton(stick, 5);
 		cannonVertUp.whileHeld(new CannonVert(-0.4));
 		cannonVertUp.whenReleased(new CannonVert(0));
 		
 		cannonVertDown = new JoystickButton(stick, 6);
 		cannonVertDown.whileHeld(new CannonVert(0.4));
-		cannonVertDown.whenReleased(new CannonVert(0));
+		cannonVertDown.whenReleased(new CannonVert(0));*/
 		
-		cannonFire = new JoystickButton(stick, 7);
+		cannonFire = new JoystickButton(stick, 1);
 		cannonFire.whileHeld(new CannonFire(0.1));
 		cannonFire.whenReleased(new CannonFire(0));
 		
-		switchTrainOmni = new JoystickButton(stick, 11);
+		switchTrainOmni = new JoystickButton(stick, 5);
 		switchTrainOmni.whenPressed(new DrivetrainSwitch(driveType.OMNI));
 		
-		switchTrainTank = new JoystickButton(stick, 12);
+		switchTrainTank = new JoystickButton(stick, 6);
 		switchTrainTank.whenPressed(new DrivetrainSwitch(driveType.TANK));
 	
 	}
